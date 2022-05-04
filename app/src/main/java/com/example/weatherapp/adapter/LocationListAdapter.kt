@@ -17,6 +17,7 @@ class LocationListAdapter: RecyclerView.Adapter<LocationListAdapter.MyViewHolder
         this.locationList=locationList
     }
 
+    // RecyclerView de listelenecek row tanimlamasi
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
@@ -47,10 +48,10 @@ class LocationListAdapter: RecyclerView.Adapter<LocationListAdapter.MyViewHolder
         val latt_long = view.latt_long
 
         fun bind(data: LocationModel){
-            distance.text=data.distance
-            title.text = data.title
-            location_type.text=data.location_type
-            latt_long.text = data.latt_long
+            distance.text= "Location Distance : "+ data.distance
+            title.text = "Location Name : "+ data.title
+            location_type.text= "Location Type : "+ data.location_type
+            latt_long.text = "Location latt - long : "+data.latt_long
 
 
         }

@@ -6,7 +6,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 class RetroInstance {
 
     //  Base url  :  https://www.metaweather.com/api/location/search/?lattlong=41.19,28.73
-    // get url :  ?lattlong=41.19,28.73
+    // get url :  api/location/search
 
     companion object {
         val BASE_URL ="https://www.metaweather.com/"

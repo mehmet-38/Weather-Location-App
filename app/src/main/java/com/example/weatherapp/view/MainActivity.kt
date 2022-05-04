@@ -1,11 +1,11 @@
-package com.example.weatherapp
+package com.example.weatherapp.view
 
 import android.Manifest
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.content.pm.PackageManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.os.DeadObjectException
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
@@ -14,25 +14,29 @@ import androidx.core.content.ContextCompat
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.weatherapp.R
 import com.example.weatherapp.adapter.LocationListAdapter
 import com.example.weatherapp.viewmodel.MainActivityViewModel
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
 import kotlinx.android.synthetic.main.activity_main.*
 
-
+const val   EXTRA_MESSAGE = "com.example.weatherapp.MESSAGE"
 class MainActivity : AppCompatActivity() {
 
     private lateinit var button :Button
-    private lateinit var textView1:TextView
+    public lateinit var textView1:TextView
+    private  lateinit var nearCitybutton:Button
 
     lateinit var recyclerAdapter : LocationListAdapter
     private lateinit var fusedLocationProviderClient: FusedLocationProviderClient
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
         button = findViewById(R.id.getLocationButton)
         textView1 = findViewById(R.id.lattlong)
+        nearCitybutton = findViewById(R.id.nearCity)
 
         fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this)
         checkPermission()
@@ -42,10 +46,16 @@ class MainActivity : AppCompatActivity() {
             initViewModel()
         }
 
-
+        nearCitybutton.setOnClickListener {
+            val latt_long = textView1.text.toString()
+            val intent =Intent(this,NearCityActivity::class.java).apply {
+            putExtra(EXTRA_MESSAGE,latt_long)
+            }
+            startActivity(intent)
+        }
     }
 
-    private fun checkPermission(){
+    public fun checkPermission(){
 
 
         if (ContextCompat.checkSelfPermission(this,android.Manifest.permission.ACCESS_COARSE_LOCATION)!=PackageManager.PERMISSION_GRANTED){
@@ -56,7 +66,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
     @SuppressLint("MissingPermission")
-    private fun getLocation() {
+    public fun getLocation() {
 
 
         fusedLocationProviderClient.lastLocation?.addOnSuccessListener{
@@ -88,6 +98,7 @@ class MainActivity : AppCompatActivity() {
         }
 
     }
+
     private fun initRecyclerView(){
         locationListRecyclerview.layoutManager= LinearLayoutManager(this)
         recyclerAdapter = LocationListAdapter()
@@ -108,7 +119,7 @@ class MainActivity : AppCompatActivity() {
         })
 
         viewModel.makeApiCall(textView1.text.toString() )
-        Toast.makeText(this,"${textView1.text.toString()}",Toast.LENGTH_SHORT).show()
+
 
     }
 }

@@ -1,6 +1,5 @@
 package com.example.weatherapp.viewmodel
 
-
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.weatherapp.data.LocationModel
@@ -10,15 +9,14 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class MainActivityViewModel :ViewModel(){
-
-    lateinit var liveDataList:MutableLiveData<List<LocationModel>>
+class NearCityActivityViewModel:ViewModel() {
+    lateinit var liveDataList: MutableLiveData<List<LocationModel>>
 
     init{
         liveDataList= MutableLiveData()
     }
 
-    fun getLiveDataObserver():MutableLiveData<List<LocationModel>>{
+    fun getLiveDataObserver(): MutableLiveData<List<LocationModel>> {
         return liveDataList
     }
 
@@ -28,7 +26,7 @@ class MainActivityViewModel :ViewModel(){
         val retroService = retroInstance.create(RetroServiceInterface::class.java)
         val call = retroService.getLocationList(lattlong)
 
-        call.enqueue(object : Callback<List<LocationModel>>{
+        call.enqueue(object : Callback<List<LocationModel>> {
             override fun onResponse(
                 call: Call<List<LocationModel>>,
                 response: Response<List<LocationModel>>
@@ -41,8 +39,6 @@ class MainActivityViewModel :ViewModel(){
             }
 
         }
-
-
 
 
         )
