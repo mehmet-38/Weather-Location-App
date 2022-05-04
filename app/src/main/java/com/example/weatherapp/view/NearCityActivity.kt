@@ -1,6 +1,7 @@
 package com.example.weatherapp.view
 
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
@@ -22,6 +23,7 @@ class NearCityActivity : AppCompatActivity() {
     private lateinit var recyclerAdapter:NearCityListAdapter
     private lateinit var textView: TextView
     private lateinit var button: Button
+    private lateinit var cityDetailbutton :Button
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_near_city)
@@ -30,11 +32,15 @@ class NearCityActivity : AppCompatActivity() {
             text=latt_long
         }
         button = findViewById(R.id.getListButton)
+        cityDetailbutton = findViewById(R.id.cityDetailButton)
         button.setOnClickListener {
             initRecyclerView()
             initViewModel()
         }
-
+        cityDetailbutton.setOnClickListener {
+            val intent = Intent(this,CityDetailActivity::class.java)
+            startActivity(intent)
+        }
 
 
     }

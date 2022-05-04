@@ -14,6 +14,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.WeatherApp">
         <activity
+            android:name=".view.CityDetailActivity"
+            android:exported="false" />
+        <activity
             android:name=".view.NearCityActivity"
             android:exported="false" />
         <activity

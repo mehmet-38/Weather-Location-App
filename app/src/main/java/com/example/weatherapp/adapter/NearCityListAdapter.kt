@@ -6,7 +6,6 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.weatherapp.R
 import com.example.weatherapp.data.LocationModel
-import kotlinx.android.synthetic.main.location_list_row.view.*
 import kotlinx.android.synthetic.main.near_city_list_row.view.*
 
 

@@ -37,19 +37,42 @@
 
 
     </TextView>
-
-    <Button
-        android:id="@+id/getListButton"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:id="@+id/buttonList"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="get List"
 
-        app:layout_constraintBottom_toTopOf="@+id/cityListRecyclerView"
+        android:orientation="horizontal"
+        android:gravity="center_horizontal"
+        app:layout_constraintTop_toBottomOf="@+id/nearCityText"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/nearCityText">
+        >
+
+        <Button
+            android:id="@+id/getListButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="get List"
+
+            >
 
 
-    </Button>
+        </Button>
+        <Button
+            android:id="@+id/cityDetailButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="City Detail Page"
+            android:layout_marginLeft="50dp"
+           >
+
+
+        </Button>
+
+
+
+    </LinearLayout>
+
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/cityListRecyclerView"

@@ -5,7 +5,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 class RetroInstance {
 
-    //  Base url  :  https://www.metaweather.com/api/location/search/?lattlong=41.19,28.73
+    //  Base url  :  https://www.metaweather.com/
     // get url :  api/location/search
 
     companion object {
