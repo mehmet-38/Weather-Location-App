@@ -6,7 +6,22 @@
     android:layout_height="match_parent"
     tools:context=".view.CityDetailActivity">
 
+    <TextView
+        android:id="@+id/woeid"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Sehir Detay"
+        android:visibility="gone"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        android:textColor="@color/black"
+        android:textAlignment="center"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        >
 
+    </TextView>
     <TextView
         android:id="@+id/title"
         android:layout_width="match_parent"
@@ -22,24 +37,65 @@
         >
 
     </TextView>
+
     <Button
         android:id="@+id/getCityDetail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="get City Detail"
-        app:layout_constraintTop_toBottomOf="@+id/title"
+        android:text="Hava durumunu getir"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        >
+        app:layout_constraintTop_toBottomOf="@+id/title">
 
 
     </Button>
+    <LinearLayout
+        android:id="@+id/weatherInfo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/getCityDetail"
+        app:layout_constraintBottom_toTopOf="@+id/weatherListRecyclerView"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Hava Durumu"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:layout_margin="5dp"
+            >
+        </TextView>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Sıcaklık"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:layout_margin="5dp"
+            >
+        </TextView>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Rüzgar Hızı"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:layout_margin="5dp"
+            >
+        </TextView>
+
+
+    </LinearLayout>
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/weatherListRecyclerView"
         android:layout_width="match_parent"
         android:layout_height="0dp"
 
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/getCityDetail"
+        app:layout_constraintTop_toBottomOf="@+id/weatherInfo"
         app:layout_constraintVertical_bias="0.678"
         tools:layout_editor_absoluteX="16dp" />
 

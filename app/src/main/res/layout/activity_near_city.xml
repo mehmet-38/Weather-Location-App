@@ -19,11 +19,22 @@
        />
 
     <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:text="Hava Durumu detaylarını görmek istediğin şehire tıkla"
+        android:textSize="15dp"
+        app:layout_constraintBottom_toTopOf="@+id/cityListRecyclerView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/nearCityText"
+        app:layout_constraintTop_toTopOf="@+id/nearCityText" />
+    <TextView
         android:id="@+id/nearCityText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:text="Near City List"
+        android:text="Yakındaki Şehirler"
         android:textStyle="bold"
         android:textSize="25dp"
         android:textAlignment="center"
@@ -34,7 +45,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.044">
-
 
     </TextView>
     <LinearLayout
@@ -48,28 +58,6 @@
         app:layout_constraintStart_toStartOf="parent"
         >
 
-        <Button
-            android:id="@+id/getListButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="get List"
-
-            >
-
-
-        </Button>
-        <Button
-            android:id="@+id/cityDetailButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="City Detail Page"
-            android:layout_marginLeft="50dp"
-           >
-
-
-        </Button>
-
-
 
     </LinearLayout>
 
@@ -82,4 +70,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/nearCityText"
         />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

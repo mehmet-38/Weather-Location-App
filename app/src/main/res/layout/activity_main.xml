@@ -11,24 +11,22 @@
         android:id="@+id/lattlong"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toTopOf="@+id/locationListRecyclerview"
+        app:layout_constraintBottom_toTopOf="@+id/buttonList"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.464"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.349">
+        app:layout_constraintVertical_bias="0.32">
 
 
     </TextView>
-
 
     <LinearLayout
         android:id="@+id/buttonList"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="75dp"
         android:orientation="horizontal"
-        android:gravity="center_horizontal"
         app:layout_constraintBottom_toTopOf="@+id/locationListRecyclerview"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -37,10 +35,9 @@
         <Button
             android:id="@+id/getLocationButton"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:layout_marginRight="40dp"
-            android:text="Get Location"
+            android:layout_height="match_parent"
+
+            android:text="Lokasyonları Listele"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent">
 
@@ -49,10 +46,11 @@
 
         <Button
             android:id="@+id/nearCity"
-            android:layout_width="126dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:text="Near City"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="15dp"
+
+            android:text="Yakın Şehirler"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
 

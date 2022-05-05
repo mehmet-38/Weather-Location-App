@@ -4,6 +4,6 @@ data class LocationModel(
     val distance:String?,
     val title:String?,
     val location_type:String?,
-    val latt_long:String?
-
+    val latt_long:String?,
+    val woeid:String?
 )

@@ -2,16 +2,30 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical"
+    android:orientation="horizontal"
     android:gravity="center"
+    android:background="#D6D5D5"
     >
 
 
     <TextView
         android:id="@+id/city"
-        android:layout_width="match_parent"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        android:textAlignment="center"
+        android:padding="15dp"
+        >
 
+
+    </TextView>
+    <TextView
+        android:id="@+id/woeidText"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
         android:textColor="@color/black"
         android:textSize="25sp"
         android:textStyle="bold"

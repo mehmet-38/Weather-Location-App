@@ -16,31 +16,47 @@ import com.example.weatherapp.adapter.NearCityListAdapter
 import com.example.weatherapp.viewmodel.MainActivityViewModel
 import com.example.weatherapp.viewmodel.NearCityActivityViewModel
 import kotlinx.android.synthetic.main.activity_near_city.*
+import org.w3c.dom.Text
 
+const val   EXTRA_MESSAGE2 = "com.example.weatherapp.MESSAGE"
 class NearCityActivity : AppCompatActivity() {
 
 
     private lateinit var recyclerAdapter:NearCityListAdapter
     private lateinit var textView: TextView
-    private lateinit var button: Button
-    private lateinit var cityDetailbutton :Button
+
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_near_city)
+
         val latt_long = intent.getStringExtra(EXTRA_MESSAGE)
         textView =findViewById<TextView?>(R.id.latt_long).apply {
             text=latt_long
         }
-        button = findViewById(R.id.getListButton)
-        cityDetailbutton = findViewById(R.id.cityDetailButton)
-        button.setOnClickListener {
-            initRecyclerView()
-            initViewModel()
+
+
+        initRecyclerView()
+        initViewModel()
+
+        fun goAct(woeid:String){
+
+             val intent = Intent(this,CityDetailActivity::class.java).apply {
+                 putExtra(EXTRA_MESSAGE2,woeid)
+         }
+                startActivity(intent)
         }
-        cityDetailbutton.setOnClickListener {
-            val intent = Intent(this,CityDetailActivity::class.java)
-            startActivity(intent)
-        }
+
+
+        recyclerAdapter.setOnItemClickListener(object :NearCityListAdapter.onItemClickListener{
+            override fun onItemClick(position: TextView) {
+
+                goAct(position.text.toString())
+
+            }
+
+        })
 
 
     }
@@ -50,6 +66,8 @@ class NearCityActivity : AppCompatActivity() {
         cityListRecyclerView.layoutManager= LinearLayoutManager(this)
         recyclerAdapter = NearCityListAdapter()
         cityListRecyclerView.adapter=recyclerAdapter
+
+
     }
     private fun initViewModel(){
         val viewModel :NearCityActivityViewModel = ViewModelProvider(this).get(NearCityActivityViewModel::class.java)

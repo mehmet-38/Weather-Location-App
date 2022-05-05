@@ -3,6 +3,7 @@ package com.example.weatherapp.view
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
+import android.widget.TextView
 import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -19,9 +20,16 @@ class CityDetailActivity : AppCompatActivity() {
     private lateinit var  recyclerAdapter : WeatherListAdapter
     lateinit var viewModel : CityDetailViewModel
     lateinit var  getDetailButton: Button
+    lateinit var woeidText :TextView
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_city_detail)
+        val woeid= intent.getStringExtra(EXTRA_MESSAGE2)
+
+        woeidText = findViewById<TextView?>(R.id.woeid).apply {
+            text=woeid
+        }
+
 
         getDetailButton = findViewById(R.id.getCityDetail)
         getDetailButton.setOnClickListener {
@@ -40,7 +48,7 @@ class CityDetailActivity : AppCompatActivity() {
             adapter = recyclerAdapter
 
         }
-        Toast.makeText(this,"recycler view oldu",Toast.LENGTH_SHORT).show()
+
     }
 
     fun initViewModel(){
@@ -57,7 +65,7 @@ class CityDetailActivity : AppCompatActivity() {
 
         })
 
-        viewModel.getWeatherList(44418)
+        viewModel.getWeatherList(woeidText.text.toString().toInt())
     }
 
 
